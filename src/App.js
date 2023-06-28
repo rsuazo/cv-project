@@ -12,9 +12,9 @@ class App extends Component {
     return (
       <div>
         <h1>CV Application</h1>
-        <GeneralInfo />
-        <EducationalExperience />
-        <PracticalExperience />
+        <GeneralInfo /><br></br>
+        <EducationalExperience /><br></br>
+        <PracticalExperience /><br></br>
       </div>
     );
   }
