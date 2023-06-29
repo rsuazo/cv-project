@@ -11,10 +11,17 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>CV Application</h1>
-        <GeneralInfo /><br></br>
-        <EducationalExperience /><br></br>
-        <PracticalExperience /><br></br>
+        <div>
+          <h1>CV Application Input</h1>
+          <GeneralInfo /><br></br>
+          <EducationalExperience /><br></br>
+          <PracticalExperience /><br></br>
+        </div>
+        <div>
+          <h1>CV Application Output</h1>
+          <GeneralInfo />
+        </div>
+
       </div>
     );
   }

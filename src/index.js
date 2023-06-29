@@ -21,6 +21,7 @@ window.onload = (e) => {
     console.log(name.value);
     console.log(email.value);
     console.log(phone.value);
+    
     name.value='';
     email.value='';
     phone.value='';
