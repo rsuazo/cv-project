@@ -6,6 +6,24 @@ import GeneralInfo from './components/generalinfo';
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      info: {
+        name: '',
+        email: '',
+        phone: '',
+      }
+
+    }
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      info: {
+        ...this.state.info,
+        [e.target.name]: e.target.value,
+      }
+    })
   }
 
   render() {
@@ -13,15 +31,10 @@ class App extends Component {
       <div>
         <div>
           <h1>CV Application Input</h1>
-          <GeneralInfo /><br></br>
+          <GeneralInfo handleChange={this.handleChange} info={this.state.info}/><br></br>
           <EducationalExperience /><br></br>
           <PracticalExperience /><br></br>
         </div>
-        <div>
-          <h1>CV Application Output</h1>
-          <GeneralInfo />
-        </div>
-
       </div>
     );
   }
