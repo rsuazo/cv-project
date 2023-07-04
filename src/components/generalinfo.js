@@ -30,23 +30,22 @@ class GeneralInfo extends Component {
     const { name, email, phone, edit } = this.state;
     return (
       <div>
-        <h1>Personal Information</h1>
-        <h2>{name ? name : 'Your name'}</h2>
-        <h2>{email ? email : 'Email'}</h2>
-        <h2>{phone ? phone : 'Phone'}</h2>
+        <h2>Personal Information</h2>
+        <h3>{name ? name : 'Your name'}</h3>
+        <h3>{email ? email : 'Email'}</h3>
+        <h3>{phone ? phone : 'Phone'}</h3>
        {!edit &&
           <button
               className="edit-toggle"
               type="button"
               onClick={this.toggleEdit}
           >
-
             Edit
           </button>
         }
 
         {edit && 
-          <form id="form_generalInfo" onSubmit={this.handleSubmit}>
+          <form id="form_generalInfo">
             <input type="text" id="name" name="name" onChange={this.handleChange} placeholder="Name" ></input><br></br>
             <input type="email" id="email" name="email" onChange={this.handleChange} placeholder="Email"></input><br></br>
             <input type="tel" id="phone" name="phone"onChange={this.handleChange} placeholder="Phone"></input><br></br><br></br>
@@ -55,7 +54,7 @@ class GeneralInfo extends Component {
                 onClick={this.toggleEdit}
                 className='close'
             >
-                Close Edit
+              Close Edit
             </button>
           </form>
         }

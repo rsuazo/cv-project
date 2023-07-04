@@ -46,3 +46,13 @@ div {
   background-color: #f2f2f2;
   padding: 20px;
 }
+
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 0.5em;
+}
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "";
+}
