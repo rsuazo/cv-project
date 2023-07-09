@@ -1,67 +1,60 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class EducationalExperience extends Component {
-  constructor(props) {
-    super(props);
+const EducationalExperience = () => {
 
-    this.state = {
-      schoolName: '',
-      major: '',
-      majorDate: '',
-      edit: false
-    }
+  const [schoolName, setSchoolName] = useState('');
+  const [major, setMajor] = useState('');
+  const [majorDate, setMajorDate] = useState('');
+  const [edit, setEdit] = useState('');
+
+  const updateSchoolName = (e) => {
+    setSchoolName(e.target.value);
+  }
+  
+  const updateMajor = (e) => {
+    setMajor(e.target.value);
   }
 
-  handleChange = (e) => {
-    this.setState({
-        [e.target.name]: e.target.value,
-    })
+  const updateMajorDate = (e) => {
+    setMajorDate(e.target.value);
   }
 
-  toggleEdit = (e) => {
-    this.setState(
-      prevState => ({
-        edit: !prevState.edit
-      })
-    )
+  const toggleEdit = (e) => {
+    setEdit(!edit);
   }
 
-  render() {
-    const { schoolName, major, majorDate, edit } = this.state;
+  return (
+    <div>
+      <h2>Educational Experience</h2>
+      <h3>{schoolName ? schoolName : 'School Name'}</h3>
+      <h3>{major ? major : 'Major'}</h3>
+      <h3>{majorDate ? majorDate : 'Major Date'}</h3>
+      {!edit &&
+        <button
+            className="edit-toggle"
+            type="button"
+            onClick={toggleEdit}
+        >
+          Edit
+        </button>
+      }
 
-    return (
-      <div>
-        <h2>Educational Experience</h2>
-        <h3>{schoolName ? schoolName : 'School Name'}</h3>
-        <h3>{major ? major : 'Major'}</h3>
-        <h3>{majorDate ? majorDate : 'Major Date'}</h3>
-        {!edit &&
+      {edit && 
+        <form name="form_educationalExperience">
+          <input type="text" id="school_name" name="schoolName" placeholder="School Name" onChange={updateSchoolName}></input><br></br>
+          <input type="text" id="major" name="major" placeholder='Major' onChange={updateMajor}></input><br></br>
+          <input type="date" id="major_date" name="majorDate" placeholder="Date of Major" onChange={updateMajorDate}></input><br></br>
           <button
-              className="edit-toggle"
               type="button"
-              onClick={this.toggleEdit}
+              onClick={toggleEdit}
+              className='close'
           >
-            Edit
+            Close Edit
           </button>
-        }
-
-        {edit && 
-          <form name="form_educationalExperience">
-            <input type="text" id="school_name" name="schoolName" placeholder="School Name" onChange={this.handleChange}></input><br></br>
-            <input type="text" id="major" name="major" placeholder='Major' onChange={this.handleChange}></input><br></br>
-            <input type="date" id="major_date" name="majorDate" placeholder="Date of Major" onChange={this.handleChange}></input><br></br>
-            <button
-                type="button"
-                onClick={this.toggleEdit}
-                className='close'
-            >
-              Close Edit
-            </button>
-          </form>
-        }
-      </div>
-    );
-  }
+        </form>
+      }
+    </div>
+  );
 }
 
 export default EducationalExperience;
