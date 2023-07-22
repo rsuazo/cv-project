@@ -4,10 +4,6 @@ import EducationalExperience from './components/educationalexperience';
 import GeneralInfo from './components/generalinfo';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div>
